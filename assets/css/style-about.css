@@ -1,0 +1,14 @@
+.page-hero { background: linear-gradient(135deg, var(--primary-green), var(--dark-green)); color: var(--white); padding: 4rem 2rem; text-align: center; }
+.page-hero h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+.page-hero p { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+
+.about-content { max-width: 800px; margin: 4rem auto; padding: 0 2rem; }
+.about-content h3 { color: var(--primary-green); margin-bottom: 1rem; margin-top: 2rem; }
+.about-content p { line-height: 1.8; color: var(--gray-600); margin-bottom: 1.5rem; }
+.about-content ul { padding-right: 1.5rem; margin-bottom: 1.5rem; }
+.about-content ul li { margin-bottom: 0.5rem; color: var(--gray-600); line-height: 1.8; }
+
+.values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin: 3rem 0; }
+.value-item { text-align: center; padding: 2rem; background: var(--white); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+.value-item i { font-size: 2.5rem; color: var(--gold); margin-bottom: 1rem; }
+.value-item h4 { color: var(--primary-green); margin-bottom: 0.5rem; }

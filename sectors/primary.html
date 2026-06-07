@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التعليم الابتدائي | البوابة التعليمية</title>
+    <meta name="description" content="خدمات التعليم الابتدائي في الجزائر: التسجيلات المدرسية، نتائج الامتحانات، فضاء الأولياء، المناهج الدراسية">
+    <meta name="keywords" content="تعليم ابتدائي, تسجيلات مدرسية, نتائج امتحانات, فضاء أولياء, منهاج, طور أول, طور ثاني">
+    <link rel="icon" href="../assets/images/icon.png" type="image/png">
+    <link rel="apple-touch-icon" href="../assets/images/icon.png">
+    <link rel="manifest" href="../manifest.webmanifest">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="../assets/css/style-sector.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <a href="../index.html"><button class="back-btn"><i class="fas fa-arrow-right"></i></button></a>
+                <div>
+                    <h1>البوابة التعليمية</h1>
+                    <span>للتلميذ والطالب الجزائري</span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="search-trigger" onclick="document.getElementById('sectorSearch').focus()"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <div class="breadcrumb-content">
+            <a href="../index.html">الرئيسية</a>
+            <i class="fas fa-chevron-left"></i>
+            <span class="current">التعليم الابتدائي</span>
+        </div>
+    </div>
+
+    <section class="sector-hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h2><i class="fas fa-child"></i> التعليم الابتدائي</h2>
+                <p>منصة متكاملة لخدمات التعليم الابتدائي في الجزائر: التسجيلات المدرسية، فضاء الأولياء، متابعة النتائج، والمناهج الدراسية لجميع السنوات.</p>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">5 سنوات</div>
+                        <div class="hero-stat-label">الطور الابتدائي</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">9+</div>
+                        <div class="hero-stat-label">خدمة رقمية</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">4.5M</div>
+                        <div class="hero-stat-label">تلميذ</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <img src="../assets/images/icon.png" alt="التعليم الابتدائي" class="hero-icon" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <div class="quick-links">
+        <div class="quick-links-content">
+            <a href="#preparatory" class="quick-link"><i class="fas fa-puzzle-piece"></i> تحضيري</a>
+            <a href="#year1" class="quick-link"><i class="fas fa-num-1"></i> أولى</a>
+            <a href="#year2" class="quick-link"><i class="fas fa-num-2"></i> ثانية</a>
+            <a href="#year3" class="quick-link"><i class="fas fa-num-3"></i> ثالثة</a>
+            <a href="#year4" class="quick-link"><i class="fas fa-num-4"></i> رابعة</a>
+            <a href="#year5" class="quick-link"><i class="fas fa-num-5"></i> خامسة</a>
+            <a href="#certificate" class="quick-link"><i class="fas fa-certificate"></i> الشهادة</a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <aside class="sidebar">
+            <div class="sidebar-card">
+                <h3 class="sidebar-title">الأقسام</h3>
+                <ul class="sidebar-menu">
+                    <li>
+                        <div class="sidebar-item-wrap">
+                            <a href="primary.html" class="active"><i class="fas fa-child"></i> التعليم الابتدائي</a>
+                            <button class="sidebar-toggle active" onclick="toggleSidebarSub(this)" aria-label="عرض الأقسام"><i class="fas fa-chevron-down"></i></button>
+                        </div>
+                        <div class="sidebar-sub-wrap" style="max-height: none;">
+                            <a href="#preparatory" class="sidebar-sub"><i class="fas fa-puzzle-piece"></i> القسم التحضيري</a>
+                            <a href="#year1" class="sidebar-sub"><span class="num-badge">1</span> السنة أولى ابتدائي</a>
+                            <a href="#year2" class="sidebar-sub"><span class="num-badge">2</span> السنة ثانية ابتدائي</a>
+                            <a href="#year3" class="sidebar-sub"><span class="num-badge">3</span> السنة ثالثة ابتدائي</a>
+                            <a href="#year4" class="sidebar-sub"><span class="num-badge">4</span> السنة رابعة ابتدائي</a>
+                            <a href="#year5" class="sidebar-sub"><span class="num-badge">5</span> السنة خامسة ابتدائي</a>
+                            <a href="#certificate" class="sidebar-sub highlight"><i class="fas fa-certificate"></i> شهادة الابتدائي</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="sidebar-item-wrap">
+                            <a href="middle.html"><i class="fas fa-book-open"></i> التعليم المتوسط</a>
+                            <button class="sidebar-toggle" onclick="toggleSidebarSub(this)" aria-label="عرض الأقسام"><i class="fas fa-chevron-down"></i></button>
+                        </div>
+                        <div class="sidebar-sub-wrap">
+                            <a href="middle.html#year1" class="sidebar-sub"><span class="num-badge">1</span> سنة أولى متوسط</a>
+                            <a href="middle.html#year2" class="sidebar-sub"><span class="num-badge">2</span> سنة ثانية متوسط</a>
+                            <a href="middle.html#year3" class="sidebar-sub"><span class="num-badge">3</span> سنة ثالثة متوسط</a>
+                            <a href="middle.html#year4" class="sidebar-sub"><span class="num-badge">4</span> سنة رابعة متوسط</a>
+                            <a href="middle.html#bem" class="sidebar-sub highlight"><i class="fas fa-certificate"></i> شهادة BEM</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="sidebar-item-wrap">
+                            <a href="secondary.html"><i class="fas fa-graduation-cap"></i> التعليم الثانوي</a>
+                            <button class="sidebar-toggle" onclick="toggleSidebarSub(this)" aria-label="عرض الأقسام"><i class="fas fa-chevron-down"></i></button>
+                        </div>
+                        <div class="sidebar-sub-wrap">
+                            <a href="secondary.html#year1" class="sidebar-sub"><span class="num-badge">1</span> سنة أولى ثانوي</a>
+                            <a href="secondary.html#year2" class="sidebar-sub"><span class="num-badge">2</span> سنة ثانية ثانوي</a>
+                            <a href="secondary.html#year3" class="sidebar-sub"><span class="num-badge">3</span> سنة ثالثة ثانوي</a>
+                            <a href="secondary.html#bac" class="sidebar-sub highlight"><i class="fas fa-certificate"></i> شهادة البكالوريا</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="sidebar-item-wrap">
+                            <a href="university.html"><i class="fas fa-university"></i> الجامعة</a>
+                            <button class="sidebar-toggle" onclick="toggleSidebarSub(this)" aria-label="عرض الأقسام"><i class="fas fa-chevron-down"></i></button>
+                        </div>
+                        <div class="sidebar-sub-wrap">
+                            <a href="university.html#inscription" class="sidebar-sub"><i class="fas fa-sign-in-alt"></i> التسجيل الجامعي</a>
+                            <a href="university.html#progres" class="sidebar-sub"><i class="fas fa-chart-line"></i> منصة Progres</a>
+                            <a href="university.html#housing" class="sidebar-sub"><i class="fas fa-bed"></i> الإيواء الجامعي</a>
+                            <a href="university.html#scholarships" class="sidebar-sub"><i class="fas fa-hand-holding-usd"></i> المنح الجامعية</a>
+                            <a href="university.html#transfer" class="sidebar-sub"><i class="fas fa-exchange-alt"></i> التحويلات</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <div class="content-area">
+            <input type="text" id="sectorSearch" class="search-box" placeholder="ابحث في هذا القسم..." style="margin-bottom:1rem;padding:1rem;border:2px solid #eee;border-radius:12px;font-family:'Tajawal',sans-serif;">
+
+            <!-- ===== القسم التحضيري ===== -->
+            <div class="section-card" id="preparatory">
+              <div class="section-header-card">
+                <div class="section-title"><i class="fas fa-puzzle-piece"></i> القسم التحضيري</div>
+                <span class="service-count">تمهيدي</span>
+              </div>
+              <p style="margin-bottom:1rem;color:#666;font-size:0.95rem;">دروس، تمارين، ونماذج أنشطة للقسم التحضيري لدعم التحضير والنجاح الدراسي.</p>
+              <div class="subject-grid">
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-language"></i></div><div class="subject-info"><h4>اللغة العربية</h4><span class="subject-count">دروس وتمارين</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-calculator"></i></div><div class="subject-info"><h4>الرياضيات</h4><span class="subject-count">تمارين وأرقام</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-star"></i></div><div class="subject-info"><h4>التربية الإسلامية</h4><span class="subject-count">سور وأذكار</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-palette"></i></div><div class="subject-info"><h4>التربية الفنية</h4><span class="subject-count">رسم وتلوين</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-music"></i></div><div class="subject-info"><h4>التربية الموسيقية</h4><span class="subject-count">أناشيد</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-pen"></i></div><div class="subject-info"><h4>تعلم الكتابة</h4><span class="subject-count">كراسات الكتابة</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-puzzle-piece"></i></div><div class="subject-info"><h4>أنشطة</h4><span class="subject-count">ألعاب تعليمية</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-folder-open"></i></div><div class="subject-info"><h4>ملفات متنوعة</h4><span class="subject-count">مذكرات ووثائق</span></div></a>
+              </div>
+              <div class="section-actions">
+                <a href="content.html" class="action-link">عرض كل الموارد <i class="fas fa-arrow-left"></i></a>
+              </div>
+            </div>
+
+            <!-- ===== السنة الأولى إبتدائي ===== -->
+            <div class="section-card" id="year1">
+              <div class="section-header-card">
+                <div class="section-title"><span class="num-badge num-badge-lg">1</span> السنة الأولى إبتدائي</div>
+                <span class="service-count">الطور الأول</span>
+              </div>
+              <p style="margin-bottom:1rem;color:#666;font-size:0.95rem;">ملخصات، تمارين، ونماذج فروض واختبارات للسنة الأولى إبتدائي.</p>
+              <div class="subject-grid">
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-calculator"></i></div><div class="subject-info"><h4>الرياضيات</h4><span class="subject-count">270 ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-language"></i></div><div class="subject-info"><h4>اللغة العربية</h4><span class="subject-count">281 ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-flag"></i></div><div class="subject-info"><h4>اللغة الفرنسية</h4><span class="subject-count">98 ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-star"></i></div><div class="subject-info"><h4>التربية الإسلامية</h4><span class="subject-count">118 ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-handshake"></i></div><div class="subject-info"><h4>التربية المدنية</h4><span class="subject-count">90 ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-flask"></i></div><div class="subject-info"><h4>التربية العلمية</h4><span class="subject-count">95 ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-palette"></i></div><div class="subject-info"><h4>التربية الفنية</h4><span class="subject-count">423 ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-music"></i></div><div class="subject-info"><h4>التربية الموسيقية</h4><span class="subject-count">133 ملف</span></div></a>
+              </div>
+              <div class="section-actions">
+                <a href="https://mektebi.education.gov.dz" target="_blank" rel="noopener noreferrer" class="action-link">الكتب المدرسية <i class="fas fa-arrow-left"></i></a>
+                <a href="content.html" class="action-link">كل المواد <i class="fas fa-arrow-left"></i></a>
+              </div>
+            </div>
+
+            <!-- ===== السنة الثانية إبتدائي ===== -->
+            <div class="section-card" id="year2">
+              <div class="section-header-card">
+                <div class="section-title"><span class="num-badge num-badge-lg">2</span> السنة الثانية إبتدائي</div>
+                <span class="service-count">الطور الأول</span>
+              </div>
+              <p style="margin-bottom:1rem;color:#666;font-size:0.95rem;">ملخصات، تمارين، ونماذج فروض واختبارات للسنة الثانية إبتدائي.</p>
+              <div class="subject-grid">
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-calculator"></i></div><div class="subject-info"><h4>الرياضيات</h4><span class="subject-count">300+ ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-language"></i></div><div class="subject-info"><h4>اللغة العربية</h4><span class="subject-count">290+ ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-flag"></i></div><div class="subject-info"><h4>اللغة الفرنسية</h4><span class="subject-count">120+ ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-star"></i></div><div class="subject-info"><h4>التربية الإسلامية</h4><span class="subject-count">130+ ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-palette"></i></div><div class="subject-info"><h4>التربية الفنية</h4><span class="subject-count">180+ ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-flask"></i></div><div class="subject-info"><h4>التربية العلمية</h4><span class="subject-count">100+ ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-music"></i></div><div class="subject-info"><h4>التربية الموسيقية</h4><span class="subject-count">60+ ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-pen"></i></div><div class="subject-info"><h4>تعلم الكتابة</h4><span class="subject-count">90+ ملف</span></div></a>
+              </div>
+              <div class="section-actions">
+                <a href="https://mektebi.education.gov.dz" target="_blank" rel="noopener noreferrer" class="action-link">الكتب المدرسية <i class="fas fa-arrow-left"></i></a>
+                <a href="content.html" class="action-link">كل المواد <i class="fas fa-arrow-left"></i></a>
+              </div>
+            </div>
+
+            <!-- ===== السنة الثالثة إبتدائي ===== -->
+            <div class="section-card" id="year3">
+              <div class="section-header-card">
+                <div class="section-title"><span class="num-badge num-badge-lg">3</span> السنة الثالثة إبتدائي</div>
+                <span class="service-count">الطور الثاني</span>
+              </div>
+              <p style="margin-bottom:1rem;color:#666;font-size:0.95rem;">ملخصات، تمارين، ونماذج فروض واختبارات للسنة الثالثة إبتدائي.</p>
+              <div class="subject-grid">
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-calculator"></i></div><div class="subject-info"><h4>الرياضيات</h4><span class="subject-count">350+ ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-language"></i></div><div class="subject-info"><h4>اللغة العربية</h4><span class="subject-count">340+ ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-flag"></i></div><div class="subject-info"><h4>اللغة الفرنسية</h4><span class="subject-count">200+ ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-star"></i></div><div class="subject-info"><h4>التربية الإسلامية</h4><span class="subject-count">150+ ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-handshake"></i></div><div class="subject-info"><h4>التربية المدنية</h4><span class="subject-count">120+ ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-landmark"></i></div><div class="subject-info"><h4>التاريخ والجغرافيا</h4><span class="subject-count">80+ ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-flask"></i></div><div class="subject-info"><h4>التربية العلمية</h4><span class="subject-count">110+ ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-palette"></i></div><div class="subject-info"><h4>التربية الفنية</h4><span class="subject-count">300+ ملف</span></div></a>
+              </div>
+              <div class="section-actions">
+                <a href="https://mektebi.education.gov.dz" target="_blank" rel="noopener noreferrer" class="action-link">الكتب المدرسية <i class="fas fa-arrow-left"></i></a>
+                <a href="content.html" class="action-link">كل المواد <i class="fas fa-arrow-left"></i></a>
+              </div>
+            </div>
+
+            <!-- ===== السنة الرابعة إبتدائي ===== -->
+            <div class="section-card" id="year4">
+              <div class="section-header-card">
+                <div class="section-title"><span class="num-badge num-badge-lg">4</span> السنة الرابعة إبتدائي</div>
+                <span class="service-count">الطور الثاني</span>
+              </div>
+              <p style="margin-bottom:1rem;color:#666;font-size:0.95rem;">ملخصات، تمارين، ونماذج فروض واختبارات للسنة الرابعة إبتدائي.</p>
+              <div class="subject-grid">
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-calculator"></i></div><div class="subject-info"><h4>الرياضيات</h4><span class="subject-count">380+ ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-language"></i></div><div class="subject-info"><h4>اللغة العربية</h4><span class="subject-count">360+ ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-flag"></i></div><div class="subject-info"><h4>اللغة الفرنسية</h4><span class="subject-count">250+ ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-language"></i></div><div class="subject-info"><h4>اللغة الإنجليزية</h4><span class="subject-count">40+ ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-star"></i></div><div class="subject-info"><h4>التربية الإسلامية</h4><span class="subject-count">170+ ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-handshake"></i></div><div class="subject-info"><h4>التربية المدنية</h4><span class="subject-count">140+ ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-flask"></i></div><div class="subject-info"><h4>التربية العلمية</h4><span class="subject-count">130+ ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-palette"></i></div><div class="subject-info"><h4>التربية الفنية</h4><span class="subject-count">350+ ملف</span></div></a>
+              </div>
+              <div class="section-actions">
+                <a href="https://mektebi.education.gov.dz" target="_blank" rel="noopener noreferrer" class="action-link">الكتب المدرسية <i class="fas fa-arrow-left"></i></a>
+                <a href="content.html" class="action-link">كل المواد <i class="fas fa-arrow-left"></i></a>
+              </div>
+            </div>
+
+            <!-- ===== السنة الخامسة إبتدائي ===== -->
+            <div class="section-card" id="year5">
+              <div class="section-header-card">
+                <div class="section-title"><span class="num-badge num-badge-lg">5</span> السنة الخامسة إبتدائي</div>
+                <span class="service-count">الطور الثالث</span>
+              </div>
+              <p style="margin-bottom:1rem;color:#666;font-size:0.95rem;">ملخصات، تمارين، ونماذج فروض واختبارات للسنة الخامسة إبتدائي.</p>
+              <div class="subject-grid">
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-calculator"></i></div><div class="subject-info"><h4>الرياضيات</h4><span class="subject-count">450+ ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-language"></i></div><div class="subject-info"><h4>اللغة العربية</h4><span class="subject-count">420+ ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-flag"></i></div><div class="subject-info"><h4>اللغة الفرنسية</h4><span class="subject-count">350+ ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-language"></i></div><div class="subject-info"><h4>اللغة الإنجليزية</h4><span class="subject-count">60+ ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-star"></i></div><div class="subject-info"><h4>التربية الإسلامية</h4><span class="subject-count">200+ ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-handshake"></i></div><div class="subject-info"><h4>التربية المدنية</h4><span class="subject-count">160+ ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-flask"></i></div><div class="subject-info"><h4>التربية العلمية</h4><span class="subject-count">150+ ملف</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-landmark"></i></div><div class="subject-info"><h4>التاريخ والجغرافيا</h4><span class="subject-count">110+ ملف</span></div></a>
+              </div>
+              <div class="section-actions">
+                <a href="https://mektebi.education.gov.dz" target="_blank" rel="noopener noreferrer" class="action-link">الكتب المدرسية <i class="fas fa-arrow-left"></i></a>
+                <a href="content.html" class="action-link">كل المواد <i class="fas fa-arrow-left"></i></a>
+              </div>
+            </div>
+
+            <!-- ===== شهادة التعليم الإبتدائي ===== -->
+            <div class="section-card" id="certificate">
+              <div class="section-header-card highlight-header">
+                <div class="section-title"><i class="fas fa-certificate"></i> شهادة التعليم الإبتدائي</div>
+                <span class="service-count">الطور الثالث</span>
+              </div>
+              <p style="margin-bottom:1rem;color:#666;font-size:0.95rem;">الاستعداد لشهادة التعليم الإبتدائي: مواضيع محلولة، نتائج، ومراجعة شاملة.</p>
+              <div class="subject-grid">
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-file-alt"></i></div><div class="subject-info"><h4>مواضيع الامتحان</h4><span class="subject-count">نماذج مع التصحيح</span></div></a>
+                <a href="https://www.education.gov.dz" target="_blank" rel="noopener noreferrer" class="subject-card"><div class="subject-icon"><i class="fas fa-chart-line"></i></div><div class="subject-info"><h4>نتائج الشهادة</h4><span class="subject-count">الاستعلام عن النتائج</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-calculator"></i></div><div class="subject-info"><h4>مراجعة الرياضيات</h4><span class="subject-count">دروس وتمارين</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-language"></i></div><div class="subject-info"><h4>مراجعة اللغة العربية</h4><span class="subject-count">دروس وقواعد</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-flag"></i></div><div class="subject-info"><h4>مراجعة الفرنسية</h4><span class="subject-count">دروس وتمارين</span></div></a>
+                <a href="content.html" class="subject-card"><div class="subject-icon"><i class="fas fa-star"></i></div><div class="subject-info"><h4>مراجعة التربية الإسلامية</h4><span class="subject-count">دروس وتلخيص</span></div></a>
+              </div>
+              <div class="section-actions">
+                <a href="content.html" class="action-link">كل ما يخص الشهادة <i class="fas fa-arrow-left"></i></a>
+              </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <footer class="footer" dir="rtl">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-brand">
+                    <img src="../assets/images/icon-512.png" alt="البوابة التعليمية" loading="lazy">
+                    <div>
+                        <h3>البوابة التعليمية</h3>
+                        <span>للتلميذ والطالب الجزائري</span>
+                    </div>
+                </div>
+                <p class="footer-desc">منصة موحدة تتيح للتلميذ والطالب الجزائري الوصول السريع إلى جميع المنصات والخدمات التعليمية الرقمية.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="تلغرام"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4><i class="fas fa-link"></i> روابط سريعة</h4>
+                <ul class="footer-links">
+                    <li><a href="primary.html"><i class="fas fa-chevron-left"></i> التعليم الابتدائي</a></li>
+                    <li><a href="middle.html"><i class="fas fa-chevron-left"></i> التعليم المتوسط</a></li>
+                    <li><a href="secondary.html"><i class="fas fa-chevron-left"></i> التعليم الثانوي</a></li>
+                    <li><a href="university.html"><i class="fas fa-chevron-left"></i> الخدمات الجامعية</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4><i class="fas fa-info-circle"></i> معلومات</h4>
+                <ul class="footer-links">
+                    <li><a href="../pages/about.html"><i class="fas fa-chevron-left"></i> من نحن</a></li>
+                    <li><a href="../pages/contact.html"><i class="fas fa-chevron-left"></i> اتصل بنا</a></li>
+                    <li><a href="../pages/privacy.html"><i class="fas fa-chevron-left"></i> سياسة الخصوصية</a></li>
+                    <li><a href="../pages/terms.html"><i class="fas fa-chevron-left"></i> شروط الاستخدام</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>جميع الحقوق محفوظة &copy; 2026 البوابة التعليمية للتلميذ والطالب الجزائري</p>
+        </div>
+    </footer>
+
+    <button class="fab" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="العودة للأعلى">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="../assets/js/sector.js"></script>
+</body>
+</html>

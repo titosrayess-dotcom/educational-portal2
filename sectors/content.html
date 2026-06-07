@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المكتبة التعليمية | البوابة التعليمية</title>
+    <meta name="description" content="المكتبة التعليمية: جميع المواضيع والفروض والاختبارات من ديزاد اكزام متوفرة محلياً">
+    <link rel="icon" href="../assets/images/icon.png" type="image/png">
+    <link rel="apple-touch-icon" href="../assets/images/icon.png">
+    <link rel="manifest" href="../manifest.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="../assets/css/style-sector.css">
+    <style>
+        .library-hero { background: linear-gradient(135deg, #1a237e 0%, #283593 100%); }
+        .level-tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .level-tab { padding: 0.75rem 1.5rem; border: 2px solid var(--gray-200); border-radius: 50px; background: var(--white); cursor: pointer; font-family: 'Tajawal', sans-serif; font-weight: 600; transition: var(--transition); color: var(--gray-600); }
+        .level-tab:hover { border-color: var(--primary); color: var(--primary); }
+        .level-tab.active { background: var(--primary); color: var(--white); border-color: var(--primary); }
+        .year-tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .year-tab { padding: 0.5rem 1rem; border: 2px solid var(--gray-200); border-radius: 50px; background: var(--white); cursor: pointer; font-family: 'Tajawal', sans-serif; font-weight: 500; transition: var(--transition); color: var(--gray-600); font-size: 0.9rem; }
+        .year-tab:hover { border-color: var(--primary); color: var(--primary); }
+        .year-tab.active { background: var(--primary); color: var(--white); border-color: var(--primary); }
+        .content-section { display: none; }
+        .content-section.active { display: block; }
+
+        .category-list { padding: 0.75rem 1.5rem 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .cat-chip { padding: 0.4rem 1rem; background: var(--gray-100); border-radius: 50px; font-size: 0.8rem; cursor: pointer; transition: var(--transition); border: 1px solid transparent; color: var(--gray-600); font-family: 'Tajawal', sans-serif; }
+        .cat-chip:hover { background: var(--primary-light); color: var(--primary); border-color: var(--primary); }
+        .cat-chip.active { background: var(--primary); color: var(--white); border-color: var(--primary); }
+
+        .file-list { padding: 0 1.5rem 1.5rem; }
+        .file-item { display: flex; align-items: center; justify-content: space-between; padding: 0.6rem 0.8rem; border-bottom: 1px solid var(--gray-100); gap: 0.5rem; flex-wrap: wrap; }
+        .file-item:last-child { border-bottom: none; }
+        .file-title { font-size: 0.85rem; color: var(--gray-800); word-break: break-word; flex: 1; min-width: 150px; }
+        .file-download { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.8rem; background: var(--primary-light); color: var(--primary); border-radius: 50px; text-decoration: none; font-size: 0.75rem; font-weight: 600; transition: var(--transition); white-space: nowrap; }
+        .file-download:hover { background: var(--primary); color: var(--white); }
+
+
+        .file-count-badge { font-size: 0.75rem; color: var(--gray-600); background: var(--gray-100); padding: 0.15rem 0.5rem; border-radius: 20px; }
+
+        .empty-state { padding: 3rem; text-align: center; color: var(--gray-600); }
+        .empty-state i { font-size: 3rem; margin-bottom: 1rem; color: var(--gray-200); }
+
+        .cat-header { padding: 0 1.5rem; margin-top: 0.5rem; }
+        .cat-header h5 { color: var(--gray-600); font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem; }
+        .cat-header h5 i { color: var(--primary); }
+
+        .search-container { margin-bottom: 1rem; }
+        .search-container input { width: 100%; padding: 0.75rem 1rem; border: 2px solid var(--gray-200); border-radius: var(--radius); font-family: 'Tajawal', sans-serif; transition: var(--transition); }
+        .search-container input:focus { outline: none; border-color: var(--primary); }
+
+        .stats-bar { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+        .stat-item { display: flex; align-items: center; gap: 0.5rem; color: var(--gray-600); font-size: 0.9rem; }
+        .stat-item i { color: var(--primary); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <a href="../index.html"><button class="back-btn"><i class="fas fa-arrow-right"></i></button></a>
+                <div>
+                    <h1>البوابة التعليمية</h1>
+                    <span>للتلميذ والطالب الجزائري</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <div class="breadcrumb-content">
+            <a href="../index.html">الرئيسية</a>
+            <i class="fas fa-chevron-left"></i>
+            <span class="current">المكتبة التعليمية</span>
+        </div>
+    </div>
+
+    <section class="sector-hero library-hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h2><i class="fas fa-book"></i> المكتبة التعليمية</h2>
+                <p>جميع المواضيع والفروض والاختبارات والدروس متوفرة محلياً للتحميل السريع</p>
+                <div class="stats-bar" id="statsBar">
+                    <div class="stat-item"><i class="fas fa-layer-group"></i> <span id="statLevels">0</span> أطوار</div>
+                    <div class="stat-item"><i class="fas fa-calendar-alt"></i> <span id="statYears">0</span> سنوات</div>
+                    <div class="stat-item"><i class="fas fa-book"></i> <span id="statSubjects">0</span> مواد</div>
+                    <div class="stat-item"><i class="fas fa-tags"></i> <span id="statCategories">0</span> تصنيفات</div>
+                    <div class="stat-item"><i class="fas fa-file-alt"></i> <span id="statFiles">0</span> ملف</div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <img src="../assets/images/icon.png" alt="المكتبة التعليمية" class="hero-icon" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <div class="main-content">
+        <aside class="sidebar">
+            <div class="sidebar-card">
+                <h3 class="sidebar-title">الأطوار</h3>
+                <ul class="sidebar-menu" id="levelMenu"></ul>
+            </div>
+            <div class="sidebar-card">
+                <h3 class="sidebar-title">السنوات</h3>
+                <ul class="sidebar-menu" id="yearMenu"></ul>
+            </div>
+        </aside>
+
+        <div class="content-area">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="ابحث في المواد..." oninput="filterSubjects()">
+            </div>
+
+            <div class="level-tabs" id="levelTabs"></div>
+            <div class="year-tabs" id="yearTabs"></div>
+
+            <div id="yearContent"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-brand">
+                    <img src="../assets/images/icon-512.png" alt="البوابة التعليمية" loading="lazy">
+                    <div>
+                        <h3>البوابة التعليمية</h3>
+                        <span>للتلميذ والطالب الجزائري</span>
+                    </div>
+                </div>
+                <p class="footer-desc">منصة موحدة تتيح للتلميذ والطالب الجزائري الوصول السريع إلى جميع المنصات والخدمات التعليمية الرقمية.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="تلغرام"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4><i class="fas fa-link"></i> روابط سريعة</h4>
+                <ul class="footer-links">
+                    <li><a href="primary.html"><i class="fas fa-chevron-left"></i> التعليم الابتدائي</a></li>
+                    <li><a href="middle.html"><i class="fas fa-chevron-left"></i> التعليم المتوسط</a></li>
+                    <li><a href="secondary.html"><i class="fas fa-chevron-left"></i> التعليم الثانوي</a></li>
+                    <li><a href="university.html"><i class="fas fa-chevron-left"></i> الخدمات الجامعية</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4><i class="fas fa-info-circle"></i> معلومات</h4>
+                <ul class="footer-links">
+                    <li><a href="../pages/about.html"><i class="fas fa-chevron-left"></i> من نحن</a></li>
+                    <li><a href="../pages/contact.html"><i class="fas fa-chevron-left"></i> اتصل بنا</a></li>
+                    <li><a href="../pages/privacy.html"><i class="fas fa-chevron-left"></i> سياسة الخصوصية</a></li>
+                    <li><a href="../pages/terms.html"><i class="fas fa-chevron-left"></i> شروط الاستخدام</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>جميع الحقوق محفوظة &copy; 2026 البوابة التعليمية للتلميذ والطالب الجزائري</p>
+        </div>
+    </footer>
+
+    <button class="fab" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="العودة للأعلى">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+    let DATA = {};
+    const LEVEL_ICONS = { primary: 'fa-child', middle: 'fa-book-open', secondary: 'fa-graduation-cap' };
+    const SUBJECT_ICONS = {
+        mathematiques: 'fa-calculator', arabe: 'fa-language', francais: 'fa-flag', anglais: 'fa-language',
+        'histoire-geographie': 'fa-landmark', physique: 'fa-flask', 'sciences-naturelles': 'fa-leaf',
+        'tarbia-islamia': 'fa-star', 'tarbia-madania': 'fa-handshake', tamazight: 'fa-language',
+        technologie: 'fa-microchip', dessin: 'fa-palette', musique: 'fa-music', informatique: 'fa-laptop',
+        activites: 'fa-puzzle-piece', ecriture: 'fa-pen', documents: 'fa-folder-open', youtube: 'fa-youtube',
+        'economie-management': 'fa-chart-bar', comptabilite: 'fa-calculator', droit: 'fa-gavel',
+        'genie-civil': 'fa-hard-hat', 'genie-mecanique': 'fa-cogs', 'genie-procedes': 'fa-flask',
+        'genie-electrique': 'fa-bolt', allemand: 'fa-language', espagnol: 'fa-language', philosophie: 'fa-brain',
+        italien: 'fa-language', 'technologie-st': 'fa-microchip'
+    };
+    const FALLBACK_ICON = 'fa-book';
+
+    function getSubjectIcon(slug) {
+        return SUBJECT_ICONS[slug] || FALLBACK_ICON;
+    }
+
+    function loadData() {
+        fetch('../assets/content/data.json')
+            .then(r => r.json())
+            .then(data => {
+                DATA = data;
+                init();
+            })
+            .catch(err => {
+                document.getElementById('yearContent').innerHTML =
+                    '<div class="empty-state"><i class="fas fa-exclamation-triangle"></i><p>تعذر تحميل المكتبة. يرجى المحاولة لاحقاً.</p></div>';
+            });
+    }
+
+    function init() {
+        updateStats();
+        renderLevelTabs();
+        renderYearMenu();
+        const firstLevel = Object.keys(DATA)[0];
+        if (firstLevel) selectLevel(firstLevel);
+    }
+
+    function updateStats() {
+        const levels = Object.keys(DATA).length;
+        let years = 0, subjects = 0, categories = 0, files = 0;
+        for (const ld of Object.values(DATA)) {
+            for (const yd of Object.values(ld.years || {})) {
+                years++;
+                for (const sd of Object.values(yd.subjects || {})) {
+                    subjects++;
+                    for (const cd of Object.values(sd.categories || {})) {
+                        categories++;
+                        files += (cd.files || []).length;
+                    }
+                }
+            }
+        }
+        document.getElementById('statLevels').textContent = levels;
+        document.getElementById('statYears').textContent = years;
+        document.getElementById('statSubjects').textContent = subjects;
+        document.getElementById('statCategories').textContent = categories;
+        document.getElementById('statFiles').textContent = files;
+    }
+
+    function renderLevelTabs() {
+        const container = document.getElementById('levelTabs');
+        const menu = document.getElementById('levelMenu');
+        container.innerHTML = '';
+        menu.innerHTML = '';
+        for (const [key, ld] of Object.entries(DATA)) {
+            const tab = document.createElement('button');
+            tab.className = 'level-tab';
+            tab.innerHTML = `<i class="fas ${LEVEL_ICONS[key] || 'fa-school'}"></i> ${ld.label}`;
+            tab.onclick = () => selectLevel(key);
+            container.appendChild(tab);
+
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = '#';
+            a.innerHTML = `<i class="fas ${LEVEL_ICONS[key] || 'fa-school'}"></i> ${ld.label}`;
+            a.onclick = (e) => { e.preventDefault(); selectLevel(key); };
+            li.appendChild(a);
+            menu.appendChild(li);
+        }
+    }
+
+    let currentLevel = null;
+    let currentYear = null;
+
+    function selectLevel(levelKey) {
+        currentLevel = levelKey;
+        document.querySelectorAll('.level-tab').forEach((t, i) => {
+            t.classList.toggle('active', Object.keys(DATA)[i] === levelKey);
+        });
+        document.querySelectorAll('#levelMenu a').forEach((a, i) => {
+            a.classList.toggle('active', Object.keys(DATA)[i] === levelKey);
+        });
+        renderYearTabs(levelKey);
+        const years = Object.keys(DATA[levelKey].years || {});
+        if (years.length) selectYear(levelKey, years[0]);
+    }
+
+    function renderYearTabs(levelKey) {
+        const container = document.getElementById('yearTabs');
+        const menu = document.getElementById('yearMenu');
+        container.innerHTML = '';
+        menu.innerHTML = '';
+        const years = DATA[levelKey].years || {};
+        for (const [yk, yd] of Object.entries(years)) {
+            const tab = document.createElement('button');
+            tab.className = 'year-tab';
+            tab.textContent = yd.label;
+            tab.onclick = () => selectYear(levelKey, yk);
+            container.appendChild(tab);
+
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = '#';
+            a.textContent = yd.label;
+            a.onclick = (e) => { e.preventDefault(); selectYear(levelKey, yk); };
+            li.appendChild(a);
+            menu.appendChild(li);
+        }
+    }
+
+    function selectYear(levelKey, yearKey) {
+        currentYear = yearKey;
+        document.querySelectorAll('.year-tab').forEach((t, i) => {
+            const yk = Object.keys(DATA[levelKey].years || {})[i];
+            t.classList.toggle('active', yk === yearKey);
+        });
+        document.querySelectorAll('#yearMenu a').forEach((a, i) => {
+            const yk = Object.keys(DATA[levelKey].years || {})[i];
+            a.classList.toggle('active', yk === yearKey);
+        });
+        renderYearContent(levelKey, yearKey);
+    }
+
+    function renderYearContent(levelKey, yearKey) {
+        const container = document.getElementById('yearContent');
+        const yd = DATA[levelKey].years[yearKey];
+        if (!yd || !yd.subjects) {
+            container.innerHTML = '<div class="empty-state"><i class="fas fa-folder-open"></i><p>لا توجد مواد</p></div>';
+            return;
+        }
+        container.innerHTML = '';
+
+        for (const [sk, sd] of Object.entries(yd.subjects)) {
+            const card = document.createElement('div');
+            card.className = 'section-card';
+            card.dataset.subject = sd.label;
+            card.dataset.slug = sk;
+
+            const header = document.createElement('div');
+            header.className = 'section-header-card';
+            header.innerHTML = `
+                <div class="section-title">
+                    <i class="fas ${getSubjectIcon(sk)}"></i>
+                    ${sd.label}
+                </div>
+                <span class="file-count-badge">${sd.count || 0} ملف</span>
+            `;
+
+            const cats = sd.categories || {};
+            if (Object.keys(cats).length === 0) {
+                header.style.cursor = 'default';
+            } else {
+                header.style.cursor = 'pointer';
+                header.dataset.expanded = 'false';
+                header.onclick = function() {
+                    const body = this.nextElementSibling;
+                    const expanded = this.dataset.expanded === 'true';
+                    body.style.display = expanded ? 'none' : 'block';
+                    this.dataset.expanded = expanded ? 'false' : 'true';
+                };
+            }
+
+            card.appendChild(header);
+
+            const body = document.createElement('div');
+            body.style.display = 'none';
+
+            if (Object.keys(cats).length === 0) {
+                body.innerHTML = '<div class="empty-state" style="padding:1rem"><p>لا توجد تصنيفات</p></div>';
+            } else {
+                const catList = document.createElement('div');
+                catList.className = 'category-list';
+
+                for (const [ck, cd] of Object.entries(cats)) {
+                    const chip = document.createElement('button');
+                    chip.className = 'cat-chip';
+                    chip.innerHTML = `${cd.label} <span style="font-size:0.7rem;opacity:0.7">(${cd.count || 0})</span>`;
+                    chip.onclick = (e) => {
+                        e.stopPropagation();
+                        toggleCategory(card, ck, cd);
+                    };
+                    catList.appendChild(chip);
+                }
+                body.appendChild(catList);
+            }
+
+            card.appendChild(body);
+            container.appendChild(card);
+        }
+    }
+
+    function toggleCategory(card, catKey, catData) {
+        const chips = card.querySelectorAll('.cat-chip');
+        let targetChip = null;
+        chips.forEach((chip, i) => {
+            const ck = Object.keys(card.querySelector('.category-list').querySelectorAll('.cat-chip'))[i];
+            // find by data attribute instead
+        });
+
+        const cats = Object.entries(card.querySelectorAll('.cat-chip'));
+        let idx = -1;
+        chips.forEach((c, i) => {
+            c.classList.remove('active');
+            if (c.textContent.includes(catData.label)) idx = i;
+        });
+
+        let fileDiv = card.querySelector('.file-list');
+        if (fileDiv) {
+            const isSame = fileDiv.dataset.catKey === catKey;
+            fileDiv.remove();
+            if (isSame) return;
+        }
+
+        if (idx >= 0) chips[idx].classList.add('active');
+
+        fileDiv = document.createElement('div');
+        fileDiv.className = 'file-list';
+        fileDiv.dataset.catKey = catKey;
+
+        const files = catData.files || [];
+        if (files.length === 0) {
+            fileDiv.innerHTML = '<div style="padding:0.5rem 0;color:var(--gray-600);font-size:0.85rem">لا توجد ملفات في هذا التصنيف</div>';
+        } else {
+            const list = document.createElement('div');
+            files.forEach(f => {
+                const item = document.createElement('div');
+                item.className = 'file-item';
+                const title = f.title || 'ملف غير معنون';
+                const localPath = f.local_path || '';
+                const dlBtn = localPath
+                    ? `<a href="../assets/content/pdfs/${localPath}" target="_blank" rel="noopener noreferrer" class="file-download"><i class="fas fa-download"></i> تحميل</a>`
+                    : '';
+                item.innerHTML = `
+                    <span class="file-title"><i class="fas fa-file-pdf" style="color:var(--accent);margin-left:0.5rem"></i>${title}</span>
+                    ${dlBtn}
+                `;
+                list.appendChild(item);
+            });
+            fileDiv.appendChild(list);
+        }
+
+        const body = card.querySelector('.section-card > div:last-child');
+        body.appendChild(fileDiv);
+    }
+
+    function filterSubjects() {
+        const q = document.getElementById('searchInput').value.trim().toLowerCase();
+        const cards = document.querySelectorAll('#yearContent .section-card');
+        cards.forEach(card => {
+            const label = (card.dataset.subject || '').toLowerCase();
+            const slug = (card.dataset.slug || '').toLowerCase();
+            const match = !q || label.includes(q) || slug.includes(q);
+            card.style.display = match ? '' : 'none';
+        });
+    }
+
+    loadData();
+    </script>
+</body>
+</html>

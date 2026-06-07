@@ -1,0 +1,28 @@
+# PDF files (downloaded locally)
+assets/content/pdfs/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# VS Code
+.vscode/
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Scraped HTML pages and test artifacts
+scraper/*.html
+scraper/*.png
+scraper/*.txt
+scraper/*.log
+scraper/*.err
+scraper/test_*.py
+scraper/test_*.pdf
+scraper/loop_*.py
+scraper/stream_loop.py
+scraper/auto_downloader.py
+scraper/check_*.py
+scraper/count_cats.py

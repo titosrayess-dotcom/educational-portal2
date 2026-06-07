@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>البوابة التعليمية للتلميذ والطالب الجزائري</title>
+  <meta name="description" content="بوابة تعليمية جزائرية شاملة تجمع جميع الخدمات والمنصات التعليمية الرقمية في مكان واحد: نتائج الامتحانات، الفروض، الدروس، الجامعات، التكوين المهني.">
+  <meta name="keywords" content="الجزائر, تعليم, بوابة تعليمية, بكالوريا, BEM, نتائج امتحانات, فروض, دروس, جامعات, تلميذ, طالب">
+  <meta property="og:image" content="assets/images/icon-512.png">
+  <meta property="og:url" content="">
+  <meta property="og:type" content="website">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="Arabic">
+
+  <link rel="icon" type="image/svg+xml" href="assets/images/icon-512.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png?v=2">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png?v=2">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/images/android-chrome-192x192.png?v=2">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png?v=2">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+  <link rel="stylesheet" href="assets/css/style-main.css">
+  <link rel="stylesheet" href="assets/css/style-section-header.css">
+
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./service-worker.js')
+        .then(reg => console.log('Service Worker registered:', reg.scope))
+        .catch(err => console.error('Service Worker failed:', err));
+    }
+  </script>
+</head>
+<body>
+  <div class="loader" id="loader">
+    <div class="loader-content">
+      <div class="loader-spinner"></div>
+      <p style="color: white; font-size: 1.3rem;">بسم الله، سيتم تحميل البوابة التعليمية...</p>
+    </div>
+  </div>
+
+  <button class="theme-toggle" onclick="toggleTheme()" title="تبديل الوضع الليلي">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fas fa-shield-alt"></i>
+        <span>بوة تعليمية بروابط رسمية آمنة وموثوقة</span>
+      </div>
+      <h1>
+        البوابة التعليمية للتلميذ <span>والطالب الجزائري</span>
+      </h1>
+      <p class="hero-subtitle">
+        منصة موحدة تجمع جميع الخدمات والمنصات التعليمية الجزائرية في مكان واحد: نتائج الامتحانات، الفروض، الدروس، الجامعات، والتكوين المهني
+      </p>
+
+      <div class="stats-bar">
+        <div class="stat-item">
+          <span class="stat-number">6+</span>
+          <span class="stat-label">قطاع تعليمي</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">280+</span>
+          <span class="stat-label">خدمة رقمية</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">24/7</span>
+          <span class="stat-label">خدمة متواصلة</span>
+        </div>
+      </div>
+
+      <div class="search-container">
+        <div class="search-box-wrapper">
+          <input type="text" class="search-box" placeholder="ابحث عن منصة تعليمية، نتيجة امتحان، فرض، أو جامعة..." id="globalSearch" autocomplete="off">
+          <button class="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="search-results" id="searchResults"></div>
+      </div>
+
+      <div style="position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); color: white; animation: bounce 2s infinite;">
+        <i class="fas fa-chevron-down" style="font-size: 2rem;"></i>
+      </div>
+  </section>
+
+  <div class="quick-access" dir="rtl">
+    <a href="#sectors" onclick="openGroup(0)" class="quick-link">
+      <i class="fas fa-child"></i>
+      <span>الابتدائي</span>
+    </a>
+    <a href="#sectors" onclick="openGroup(1)" class="quick-link">
+      <i class="fas fa-book-open"></i>
+      <span>المتوسط</span>
+    </a>
+    <a href="#sectors" onclick="openGroup(2)" class="quick-link">
+      <i class="fas fa-graduation-cap"></i>
+      <span>الثانوي</span>
+    </a>
+    <a href="#sectors" onclick="openGroup(3)" class="quick-link">
+      <i class="fas fa-university"></i>
+      <span>الجامعة</span>
+    </a>
+    <a href="#sectors" onclick="openGroup(4)" class="quick-link">
+      <i class="fas fa-ellipsis-h"></i>
+      <span>منوعات</span>
+    </a>
+
+  </div>
+
+  <section class="sectors-section" id="sectors">
+    <div class="section-header">
+      <h2>المنصات والقطاعات التعليمية</h2>
+      <p>اختر القطاع للوصول إلى الخدمات والمنصات التعليمية المتاحة</p>
+    </div>
+
+    <div class="sectors-hierarchy" id="sectorsHierarchy">
+
+      <!-- ===== التعليم الإبتدائي ===== -->
+      <div class="hierarchy-group">
+        <button class="hierarchy-header" onclick="toggleGroup(this)">
+          <div class="hierarchy-header-right">
+            <span class="hierarchy-icon"><i class="fas fa-child"></i></span>
+            <div>
+              <h3>التعليم الإبتدائي</h3>
+              <span class="hierarchy-count">7 مستويات</span>
+            </div>
+          </div>
+          <span class="hierarchy-toggle"><i class="fas fa-chevron-down"></i></span>
+        </button>
+        <div class="hierarchy-body">
+          <div class="hierarchy-sub-grid">
+            <a href="sectors/primary.html#preparatory" class="sub-item">
+              <span class="sub-icon"><i class="fas fa-puzzle-piece"></i></span>
+              <span class="sub-title">القسم التحضيري</span>
+            </a>
+            <a href="sectors/primary.html#year1" class="sub-item">
+              <span class="sub-icon sub-icon-num">1</span>
+              <span class="sub-title">السنة الأولى إبتدائي</span>
+            </a>
+            <a href="sectors/primary.html#year2" class="sub-item">
+              <span class="sub-icon sub-icon-num">2</span>
+              <span class="sub-title">السنة الثانية إبتدائي</span>
+            </a>
+            <a href="sectors/primary.html#year3" class="sub-item">
+              <span class="sub-icon sub-icon-num">3</span>
+              <span class="sub-title">السنة الثالثة إبتدائي</span>
+            </a>
+            <a href="sectors/primary.html#year4" class="sub-item">
+              <span class="sub-icon sub-icon-num">4</span>
+              <span class="sub-title">السنة الرابعة إبتدائي</span>
+            </a>
+            <a href="sectors/primary.html#year5" class="sub-item">
+              <span class="sub-icon sub-icon-num">5</span>
+              <span class="sub-title">السنة الخامسة إبتدائي</span>
+            </a>
+            <a href="sectors/primary.html#certificate" class="sub-item highlight">
+              <span class="sub-icon"><i class="fas fa-certificate"></i></span>
+              <span class="sub-title">شهادة التعليم الإبتدائي</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== التعليم المتوسط ===== -->
+      <div class="hierarchy-group">
+        <button class="hierarchy-header" onclick="toggleGroup(this)">
+          <div class="hierarchy-header-right">
+            <span class="hierarchy-icon"><i class="fas fa-book-open"></i></span>
+            <div>
+              <h3>التعليم المتوسط</h3>
+              <span class="hierarchy-count">5 مستويات</span>
+            </div>
+          </div>
+          <span class="hierarchy-toggle"><i class="fas fa-chevron-down"></i></span>
+        </button>
+        <div class="hierarchy-body">
+          <div class="hierarchy-sub-grid">
+            <a href="sectors/middle.html#year1" class="sub-item">
+              <span class="sub-icon sub-icon-num">1</span>
+              <span class="sub-title">السنة الأولى متوسط</span>
+            </a>
+            <a href="sectors/middle.html#year2" class="sub-item">
+              <span class="sub-icon sub-icon-num">2</span>
+              <span class="sub-title">السنة الثانية متوسط</span>
+            </a>
+            <a href="sectors/middle.html#year3" class="sub-item">
+              <span class="sub-icon sub-icon-num">3</span>
+              <span class="sub-title">السنة الثالثة متوسط</span>
+            </a>
+            <a href="sectors/middle.html#year4" class="sub-item">
+              <span class="sub-icon sub-icon-num">4</span>
+              <span class="sub-title">السنة الرابعة متوسط</span>
+            </a>
+            <a href="sectors/middle.html#certificate" class="sub-item highlight">
+              <span class="sub-icon"><i class="fas fa-certificate"></i></span>
+              <span class="sub-title">شهادة التعليم المتوسط</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== التعليم الثانوي ===== -->
+      <div class="hierarchy-group">
+        <button class="hierarchy-header" onclick="toggleGroup(this)">
+          <div class="hierarchy-header-right">
+            <span class="hierarchy-icon"><i class="fas fa-graduation-cap"></i></span>
+            <div>
+              <h3>التعليم الثانوي</h3>
+              <span class="hierarchy-count">4 مستويات</span>
+            </div>
+          </div>
+          <span class="hierarchy-toggle"><i class="fas fa-chevron-down"></i></span>
+        </button>
+        <div class="hierarchy-body">
+          <div class="hierarchy-sub-grid">
+            <a href="sectors/secondary.html#year1" class="sub-item">
+              <span class="sub-icon sub-icon-num">1</span>
+              <span class="sub-title">السنة الأولى ثانوي</span>
+            </a>
+            <a href="sectors/secondary.html#year2" class="sub-item">
+              <span class="sub-icon sub-icon-num">2</span>
+              <span class="sub-title">السنة الثانية ثانوي</span>
+            </a>
+            <a href="sectors/secondary.html#year3" class="sub-item">
+              <span class="sub-icon sub-icon-num">3</span>
+              <span class="sub-title">السنة الثالثة ثانوي</span>
+            </a>
+            <a href="sectors/secondary.html#bac" class="sub-item highlight">
+              <span class="sub-icon"><i class="fas fa-certificate"></i></span>
+              <span class="sub-title">شهادة البكالوريا</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== بوابة التعليم الجامعي ===== -->
+      <div class="hierarchy-group">
+        <button class="hierarchy-header" onclick="toggleGroup(this)">
+          <div class="hierarchy-header-right">
+            <span class="hierarchy-icon"><i class="fas fa-university"></i></span>
+            <div>
+              <h3>بوابة التعليم الجامعي</h3>
+              <span class="hierarchy-count">خدمات جامعية</span>
+            </div>
+          </div>
+          <span class="hierarchy-toggle"><i class="fas fa-chevron-down"></i></span>
+        </button>
+        <div class="hierarchy-body">
+          <div class="hierarchy-sub-grid">
+            <a href="sectors/university.html" class="sub-item">
+              <span class="sub-icon"><i class="fas fa-sign-in-alt"></i></span>
+              <span class="sub-title">التسجيل الجامعي</span>
+            </a>
+            <a href="sectors/university.html#inscription" class="sub-item">
+              <span class="sub-icon"><i class="fas fa-chart-line"></i></span>
+              <span class="sub-title">التسجيل المسبق و Progres</span>
+            </a>
+            <a href="sectors/university.html#housing" class="sub-item">
+              <span class="sub-icon"><i class="fas fa-bed"></i></span>
+              <span class="sub-title">الإيواء الجامعي</span>
+            </a>
+            <a href="sectors/university.html#scholarships" class="sub-item">
+              <span class="sub-icon"><i class="fas fa-hand-holding-usd"></i></span>
+              <span class="sub-title">المنح الجامعية</span>
+            </a>
+            <a href="sectors/university.html#transfer" class="sub-item">
+              <span class="sub-icon"><i class="fas fa-exchange-alt"></i></span>
+              <span class="sub-title">التحويلات الجامعية</span>
+            </a>
+            <a href="sectors/university.html" class="sub-item">
+              <span class="sub-icon"><i class="fas fa-globe"></i></span>
+              <span class="sub-title">جميع الخدمات الجامعية</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== منوعات ===== -->
+      <div class="hierarchy-group">
+        <button class="hierarchy-header" onclick="toggleGroup(this)">
+          <div class="hierarchy-header-right">
+            <span class="hierarchy-icon"><i class="fas fa-ellipsis-h"></i></span>
+            <div>
+              <h3>منوعات</h3>
+              <span class="hierarchy-count">خدمات ومنصات أخرى</span>
+            </div>
+          </div>
+          <span class="hierarchy-toggle"><i class="fas fa-chevron-down"></i></span>
+        </button>
+        <div class="hierarchy-body">
+          <div class="hierarchy-sub-grid">
+            <a href="sectors/content.html" class="sub-item">
+              <span class="sub-icon"><i class="fas fa-file-alt"></i></span>
+              <span class="sub-title">نتائج الامتحانات (المكتبة التعليمية)</span>
+            </a>
+            <a href="sectors/dzexam1.html" class="sub-item">
+              <span class="sub-icon"><i class="fas fa-file-alt"></i></span>
+              <span class="sub-title">نتائج البكالوريا (dzexam1)</span>
+            </a>
+            <a href="sectors/content.html" class="sub-item">
+              <span class="sub-icon"><i class="fas fa-user-tie"></i></span>
+              <span class="sub-title">فضاء الأستاذ (المكتبة التعليمية)</span>
+            </a>
+            <a href="sectors/dztests.html" class="sub-item">
+              <span class="sub-icon"><i class="fas fa-tasks"></i></span>
+              <span class="sub-title">الفروض والاختبارات (dztests)</span>
+            </a>
+            <a href="sectors/eddirasa.html" class="sub-item">
+              <span class="sub-icon"><i class="fas fa-book"></i></span>
+              <span class="sub-title">الدراسة (eddirasa)</span>
+            </a>
+            <a href="sectors/educationdz.html" class="sub-item">
+              <span class="sub-icon"><i class="fas fa-graduation-cap"></i></span>
+              <span class="sub-title">التعليم الجزائري (educationdz)</span>
+            </a>
+            <a href="sectors/vocational.html" class="sub-item">
+              <span class="sub-icon"><i class="fas fa-tools"></i></span>
+              <span class="sub-title">التكوين والتعليم المهني</span>
+            </a>
+            <a href="sectors/elearning.html" class="sub-item">
+              <span class="sub-icon"><i class="fas fa-laptop"></i></span>
+              <span class="sub-title">التعليم عن بعد (e-learning)</span>
+            </a>
+            <a href="sectors/digital-libraries.html" class="sub-item">
+              <span class="sub-icon"><i class="fas fa-library"></i></span>
+              <span class="sub-title">المكتبات الرقمية</span>
+            </a>
+            <a href="sectors/scholarships.html" class="sub-item">
+              <span class="sub-icon"><i class="fas fa-globe-africa"></i></span>
+              <span class="sub-title">المنح الدراسية</span>
+            </a>
+            <a href="sectors/campuce-jobs.html" class="sub-item">
+              <span class="sub-icon"><i class="fas fa-briefcase"></i></span>
+              <span class="sub-title">العمل الجامعي (campuce-jobs)</span>
+            </a>
+            <a href="sectors/ecolerradja.html" class="sub-item">
+              <span class="sub-icon"><i class="fas fa-school"></i></span>
+              <span class="sub-title">مدرسة الرجاء (ecolerradja)</span>
+            </a>
+            <a href="sectors/medjedel.html" class="sub-item">
+              <span class="sub-icon"><i class="fas fa-chalkboard-teacher"></i></span>
+              <span class="sub-title">مدجيدل (medjedel)</span>
+            </a>
+            <a href="sectors/etudpdf.html" class="sub-item">
+              <span class="sub-icon"><i class="fas fa-file-pdf"></i></span>
+              <span class="sub-title">PDF للطلاب (etudpdf)</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="seo-tags">
+    <div class="seo-tags-header">
+      <div class="seo-badge"><i class="fas fa-tags"></i> تصفح حسب الموضوع</div>
+      <h2>كل ما يهم التلميذ والطالب الجزائري</h2>
+      <p>منصات تعليمية، نتائج امتحانات، فروض واختبارات، دروس، جامعات، تكوين مهني، منح دراسية والمزيد</p>
+    </div>
+    <div class="tags-cloud">
+      <a href="#sectors" onclick="openGroup(0)" class="seo-tag"><i class="fas fa-child"></i> التعليم الابتدائي</a>
+      <a href="#sectors" onclick="openGroup(1)" class="seo-tag"><i class="fas fa-book-open"></i> التعليم المتوسط</a>
+      <a href="#sectors" onclick="openGroup(2)" class="seo-tag"><i class="fas fa-graduation-cap"></i> التعليم الثانوي</a>
+      <a href="#sectors" onclick="openGroup(3)" class="seo-tag"><i class="fas fa-university"></i> الجامعة</a>
+      <a href="#sectors" onclick="openGroup(4)" class="seo-tag"><i class="fas fa-ellipsis-h"></i> منوعات</a>
+    </div>
+  </section>
+
+  <footer class="footer" dir="rtl">
+    <div class="footer-content">
+      <div class="footer-column">
+        <div class="footer-brand">
+          <img src="assets/images/icon-512.png" alt="البوابة التعليمية" loading="lazy">
+          <div>
+            <h3>البوابة التعليمية</h3>
+            <span>للتلميذ والطالب الجزائري</span>
+          </div>
+        </div>
+        <p class="footer-desc">منصة موحدة تتيح للتلميذ والطالب الجزائري الوصول السريع والآمن إلى جميع المنصات والخدمات التعليمية الرقمية من مكان واحد.</p>
+        <div class="social-links">
+          <a href="#" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="تلغرام"><i class="fab fa-telegram"></i></a>
+          <a href="#" aria-label="انستغرام"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4><i class="fas fa-link"></i> روابط سريعة</h4>
+        <ul class="footer-links">
+          <li><a href="#sectors" onclick="openGroup(0)"><i class="fas fa-chevron-left"></i> التعليم الابتدائي</a></li>
+          <li><a href="#sectors" onclick="openGroup(1)"><i class="fas fa-chevron-left"></i> التعليم المتوسط</a></li>
+          <li><a href="#sectors" onclick="openGroup(2)"><i class="fas fa-chevron-left"></i> التعليم الثانوي</a></li>
+          <li><a href="#sectors" onclick="openGroup(3)"><i class="fas fa-chevron-left"></i> الخدمات الجامعية</a></li>
+          <li><a href="#sectors" onclick="openGroup(4)"><i class="fas fa-chevron-left"></i> منوعات</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4><i class="fas fa-info-circle"></i> معلومات</h4>
+        <ul class="footer-links">
+          <li><a href="pages/about.html"><i class="fas fa-chevron-left"></i> من نحن</a></li>
+          <li><a href="pages/contact.html"><i class="fas fa-chevron-left"></i> اتصل بنا</a></li>
+          <li><a href="pages/privacy.html"><i class="fas fa-chevron-left"></i> سياسة الخصوصية</a></li>
+          <li><a href="pages/terms.html"><i class="fas fa-chevron-left"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>جميع الحقوق محفوظة &copy; 2026 البوابة التعليمية للتلميذ والطالب الجزائري | صمم ب <span class="heart">❤</span> من أجل التعليم</p>
+    </div>
+  </footer>
+
+  <button class="fab" onclick="scrollToTop()" title="العودة للأعلى">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/searchData.js"></script>
+</body>
+</html>

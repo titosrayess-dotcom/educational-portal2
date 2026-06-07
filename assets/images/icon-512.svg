@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="mainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#006233"/>
+      <stop offset="100%" style="stop-color:#008845"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700"/>
+      <stop offset="100%" style="stop-color:#FFA000"/>
+    </linearGradient>
+    <linearGradient id="pageGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#e8f5e9"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#003316" flood-opacity="0.3"/>
+    </filter>
+    <filter id="innerShadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset dx="0" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#003316" flood-opacity="0.2" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feComposite in="shadow" in2="SourceGraphic" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Rounded square base -->
+  <rect x="16" y="16" width="480" height="480" rx="96" fill="url(#mainGrad)" filter="url(#shadow)"/>
+
+  <!-- Inner subtle border -->
+  <rect x="40" y="40" width="432" height="432" rx="72" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
+
+  <!-- Open book -->
+  <g transform="translate(256, 240)" filter="url(#innerShadow)">
+    <!-- Left page -->
+    <path d="M-8,-80 L-140,-60 L-140,100 L-8,80 Z" fill="url(#pageGrad)" stroke="#e0e0e0" stroke-width="1"/>
+    <!-- Right page -->
+    <path d="M8,-80 L140,-60 L140,100 L8,80 Z" fill="url(#pageGrad)" stroke="#e0e0e0" stroke-width="1"/>
+    <!-- Spine -->
+    <path d="M-8,-80 L8,-80 L8,80 L-8,80 Z" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="1"/>
+    <!-- Page lines left -->
+    <line x1="-120" y1="-40" x2="-20" y2="-58" stroke="#c8e6c9" stroke-width="2" stroke-linecap="round"/>
+    <line x1="-120" y1="-20" x2="-20" y2="-38" stroke="#c8e6c9" stroke-width="2" stroke-linecap="round"/>
+    <line x1="-120" y1="0" x2="-20" y2="-18" stroke="#c8e6c9" stroke-width="2" stroke-linecap="round"/>
+    <line x1="-120" y1="20" x2="-20" y2="2" stroke="#c8e6c9" stroke-width="2" stroke-linecap="round"/>
+    <line x1="-120" y1="40" x2="-20" y2="22" stroke="#c8e6c9" stroke-width="2" stroke-linecap="round"/>
+    <!-- Page lines right -->
+    <line x1="20" y1="-58" x2="120" y2="-40" stroke="#c8e6c9" stroke-width="2" stroke-linecap="round"/>
+    <line x1="20" y1="-38" x2="120" y2="-20" stroke="#c8e6c9" stroke-width="2" stroke-linecap="round"/>
+    <line x1="20" y1="-18" x2="120" y2="0" stroke="#c8e6c9" stroke-width="2" stroke-linecap="round"/>
+    <line x1="20" y1="2" x2="120" y2="20" stroke="#c8e6c9" stroke-width="2" stroke-linecap="round"/>
+    <line x1="20" y1="22" x2="120" y2="40" stroke="#c8e6c9" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- Graduation cap -->
+  <g transform="translate(256, 190)" filter="url(#innerShadow)">
+    <!-- Cap base (top) -->
+    <polygon points="-100,-10 100,-10 140,20 0,55 -140,20" fill="url(#goldGrad)" stroke="#D4A000" stroke-width="2" stroke-linejoin="round"/>
+    <!-- Cap top highlight -->
+    <polygon points="-90,-14 90,-14 125,14 0,45 -125,14" fill="rgba(255,255,255,0.2)" stroke="none"/>
+    <!-- Button on top -->
+    <circle cx="0" cy="-18" r="10" fill="#D4A000" stroke="#B8860B" stroke-width="1.5"/>
+    <!-- Tassel -->
+    <path d="M0,55 Q-30,70 -50,110" fill="none" stroke="#FFD700" stroke-width="4" stroke-linecap="round"/>
+    <!-- Tassel tip -->
+    <circle cx="-52" cy="114" r="8" fill="#FFD700" stroke="#D4A000" stroke-width="1.5"/>
+    <!-- Tassel strands -->
+    <line x1="-52" y1="106" x2="-60" y2="120" stroke="#FFD700" stroke-width="2" stroke-linecap="round"/>
+    <line x1="-48" y1="106" x2="-44" y2="122" stroke="#FFD700" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- Star accents -->
+  <g opacity="0.15" fill="white">
+    <polygon points="80,80 84,92 96,92 86,100 90,112 80,104 70,112 74,100 64,92 76,92"/>
+    <polygon points="420,380 424,392 436,392 426,400 430,412 420,404 410,412 414,400 404,392 416,392"/>
+  </g>
+
+  <!-- Light rays from bottom -->
+  <g opacity="0.06">
+    <path d="M196,480 L196,440 Q196,420 216,420 L216,480 Z" fill="white"/>
+    <path d="M246,480 L246,430 Q246,410 266,410 L266,480 Z" fill="white"/>
+    <path d="M296,480 L296,440 Q296,420 316,420 L316,480 Z" fill="white"/>
+  </g>
+</svg>

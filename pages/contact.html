@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>اتصل بنا | البوابة التعليمية</title>
+<meta name="description" content="تواصل مع فريق البوابة التعليمية للتلميذ والطالب الجزائري">
+<link rel="icon" href="../assets/images/icon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="stylesheet" href="../assets/css/style-main.css">
+<link rel="stylesheet" href="../assets/css/style-contant.css">
+</head>
+<body>
+<header class="header"><div class="header-content"><div class="logo-section"><a href="../index.html"><button class="back-btn"><i class="fas fa-arrow-right"></i></button></a><div><h1>البوابة التعليمية</h1><span>للتلميذ والطالب الجزائري</span></div></div></div></header>
+<section class="page-hero"><h2>اتصل بنا</h2><p>نحن هنا لمساعدتك والإجابة عن استفساراتك</p></section>
+<div class="contact-section">
+<div class="contact-cards">
+<div class="contact-card"><i class="fas fa-envelope"></i><h3>البريد الإلكتروني</h3><p>contact@educational-portal.dz</p></div>
+<div class="contact-card"><i class="fas fa-phone"></i><h3>الهاتف</h3><p dir="ltr">+213 XXX XX XX XX</p></div>
+<div class="contact-card"><i class="fas fa-map-marker-alt"></i><h3>العنوان</h3><p>الجزائر العاصمة، الجزائر</p></div>
+<div class="contact-card"><i class="fas fa-clock"></i><h3>أوقات العمل</h3><p>طوال أيام الأسبوع 24/7</p></div>
+</div>
+<div class="contact-form-side">
+<h3>أرسل لنا رسالة</h3>
+<div class="success-message" id="successMessage">تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.</div>
+<form id="contactForm">
+<div class="form-group"><label>الاسم الكامل</label><input type="text" id="name" required placeholder="أدخل اسمك الكامل"></div>
+<div class="form-group"><label>البريد الإلكتروني</label><input type="email" id="email" required placeholder="أدخل بريدك الإلكتروني"></div>
+<div class="form-group"><label>الموضوع</label><input type="text" id="subject" required placeholder="موضوع الرسالة"></div>
+<div class="form-group"><label>الرسالة</label><textarea id="message" rows="5" required placeholder="اكتب رسالتك هنا..."></textarea></div>
+<button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> إرسال الرسالة</button>
+</form>
+</div>
+</div>
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  document.getElementById('successMessage').style.display = 'block';
+  this.reset();
+  setTimeout(() => { document.getElementById('successMessage').style.display = 'none'; }, 5000);
+});
+</script>
+<footer class="footer" dir="rtl"><div class="footer-content"><div class="footer-column"><div class="footer-brand"><img src="../assets/images/icon-512.png" alt="البوابة التعليمية" loading="lazy"><div><h3>البوابة التعليمية</h3><span>للتلميذ والطالب الجزائري</span></div></div><p class="footer-desc">منصة موحدة للوصول إلى جميع المنصات والخدمات التعليمية الرقمية.</p></div><div class="footer-column"><h4><i class="fas fa-link"></i> روابط سريعة</h4><ul class="footer-links"><li><a href="../sectors/primary.html">التعليم الابتدائي</a></li><li><a href="../sectors/middle.html">التعليم المتوسط</a></li><li><a href="../sectors/secondary.html">البكالوريا</a></li><li><a href="../sectors/university.html">الخدمات الجامعية</a></li></ul></div><div class="footer-column"><h4><i class="fas fa-info-circle"></i> معلومات</h4><ul class="footer-links"><li><a href="about.html">من نحن</a></li><li><a href="contact.html">اتصل بنا</a></li><li><a href="privacy.html">سياسة الخصوصية</a></li><li><a href="terms.html">شروط الاستخدام</a></li></ul></div></div><div class="footer-bottom"><p>جميع الحقوق محفوظة &copy; 2026 البوابة التعليمية للتلميذ والطالب الجزائري</p></div></footer>
+<button class="fab" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
+</body>
+</html>
