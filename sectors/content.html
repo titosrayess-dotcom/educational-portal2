@@ -408,9 +408,12 @@
                 const item = document.createElement('div');
                 item.className = 'file-item';
                 const title = f.title || 'ملف غير معنون';
-                const localPath = f.local_path || '';
-                const dlBtn = localPath
-                    ? `<a href="../assets/content/pdfs/${localPath}" target="_blank" rel="noopener noreferrer" class="file-download"><i class="fas fa-download"></i> تحميل</a>`
+                const url = f.direct_url || f.local_path || '';
+                const dlUrl = url && url !== '_unavailable'
+                    ? (url.startsWith('http') ? url : `../assets/content/pdfs/${url}`)
+                    : '';
+                const dlBtn = dlUrl
+                    ? `<a href="${dlUrl}" target="_blank" rel="noopener noreferrer" class="file-download"><i class="fas fa-download"></i> تحميل</a>`
                     : '';
                 item.innerHTML = `
                     <span class="file-title"><i class="fas fa-file-pdf" style="color:var(--accent);margin-left:0.5rem"></i>${title}</span>
