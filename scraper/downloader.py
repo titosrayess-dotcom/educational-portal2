@@ -154,7 +154,7 @@ def process_file(file_entry, level_key, year_code, subject_slug, cat_slug):
 
 def save_progress(data, processed, total_files):
     """Save progress to data.json."""
-    with open(DATA_FILE, "w", encoding="utf-8") as f:
+    with open(DATA_FILE, "w", encoding="utf-8-sig") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
     pct = round(processed / total_files * 100, 1) if total_files else 0
     print(f"\n  -- Saved progress: {processed}/{total_files} ({pct}%) -- "
@@ -172,7 +172,7 @@ def main():
         print(f"[!] Data file not found: {DATA_FILE}")
         sys.exit(1)
 
-    with open(DATA_FILE, "r", encoding="utf-8") as f:
+    with open(DATA_FILE, "r", encoding="utf-8-sig") as f:
         data = json.load(f)
 
     # Init session

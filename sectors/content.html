@@ -203,8 +203,7 @@
         updateStats();
         renderLevelTabs();
         renderYearMenu();
-        const firstLevel = Object.keys(DATA)[0];
-        if (firstLevel) selectLevel(firstLevel);
+        applyUrlParams();
     }
 
     function updateStats() {
@@ -248,6 +247,37 @@
             a.onclick = (e) => { e.preventDefault(); selectLevel(key); };
             li.appendChild(a);
             menu.appendChild(li);
+        }
+    }
+
+    function applyUrlParams() {
+        const params = new URLSearchParams(window.location.search);
+        const level = params.get('level');
+        const year = params.get('year');
+        const subject = params.get('subject');
+        const keys = Object.keys(DATA);
+        if (level && keys.includes(level)) {
+            selectLevel(level);
+            if (year && DATA[level].years && DATA[level].years[year]) {
+                selectYear(level, year);
+                if (subject) {
+                    setTimeout(() => {
+                        const cards = document.querySelectorAll('#yearContent .section-card');
+                        for (const card of cards) {
+                            if (card.dataset.slug === subject) {
+                                const header = card.querySelector('.section-header-card');
+                                if (header && header.dataset.expanded === 'false') {
+                                    header.click();
+                                }
+                                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                break;
+                            }
+                        }
+                    }, 300);
+                }
+            }
+        } else if (keys.length) {
+            selectLevel(keys[0]);
         }
     }
 
